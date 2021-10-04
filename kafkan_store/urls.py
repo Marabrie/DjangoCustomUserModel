@@ -8,6 +8,6 @@ urlpatterns = [
     path('kafkan/new/', views.create_kafkan, name='kafkan_new'),
     path('kafkan/new/', views.kafkan_new, name='kafkan_new'),
     path('kafkan/<int:pk>/edit/', views.kafkan_edit, name='kafkan_edit'), 
-    path('kafkan/<pk>/delete/', views.kafkan_delete, name='kafkan_delete'), 
+    path('kafkan/<int:pk>/delete/', views.kafkan_delete, name='kafkan_delete'), 
     
 ]

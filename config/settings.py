@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts', #new
+    'kafkan_store'
+    
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser' #new

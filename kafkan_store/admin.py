@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from kafkan_store.models import Kafkan
+
+admin.site.register(Kafkan)
+
