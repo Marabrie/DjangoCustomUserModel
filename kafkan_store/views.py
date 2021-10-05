@@ -26,3 +26,24 @@ def kafkan_new(request):
     else:
         form = KafkanForm
     return render(request, 'kafkan/kafkan_edit.html', {'form': form})
+
+def kafkan_edit(request, pk):
+    kafkan = get_object_or_404(Kafkan, pk=pk)
+    if request.method == 'POST':
+        form = KafkanForm(request.POST, instance=kafkan)
+        if form.is_valid():
+            kafkan = form.save(commit=False)
+            kafkan.author = request.user
+            kafkan.save()
+            return redirect('kafkan_detail', pk=kafkan.pk)
+    else:
+        form = KafkanForm(instance=kafkan)
+    return render(request, 'kafkan/kafkan_edit.html', {'form': form})
+
+def kafkan_delete(request, pk):
+    kafkan_to_delete = get_object_or_404(Kafkan, pk=pk)
+    kafkan_to_delete.delete()
+    return redirect('kafkan_list')
+
+
+ 
