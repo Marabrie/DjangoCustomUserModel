@@ -17,7 +17,6 @@ def kafkan_detail(request, pk):
 def kafkan_new(request):
     if request.method == 'POST':
         form = KafkanForm(request.POST)
-        # kafkan_form = KafkanForm(request.POST)
         if form.is_valid():
             kafkan = form.save(commit=False)
             kafkan.author = request.user
@@ -25,7 +24,7 @@ def kafkan_new(request):
             return redirect('kafkan_detail', pk=kafkan.pk)
     else:
         form = KafkanForm
-    return render(request, 'kafkan/kafkan_edit.html', {'form': form})
+    return render(request, 'kafkan_edit.html', {'form': form})
 
 def kafkan_edit(request, pk):
     kafkan = get_object_or_404(Kafkan, pk=pk)
@@ -38,12 +37,28 @@ def kafkan_edit(request, pk):
             return redirect('kafkan_detail', pk=kafkan.pk)
     else:
         form = KafkanForm(instance=kafkan)
-    return render(request, 'kafkan/kafkan_edit.html', {'form': form})
+    return render(request, 'kafkan_edit.html', {'form': form})
 
 def kafkan_delete(request, pk):
     kafkan_to_delete = get_object_or_404(Kafkan, pk=pk)
     kafkan_to_delete.delete()
     return redirect('kafkan_list')
 
+
+# def create_kafkan(request):
+#     if request.method == "GET":
+#         form = KafkanForm()
+#         return render(request, 'kafkan/create_kafkan.html', {'form':form})
+#     elif request.method == "POST":
+#         form = KafkanForm(request.POST)
+#         if form.is_valid():
+#             size = form.data['size']
+#             price = form.data['price']
+#             color = form.data['color']
+#             material = form.date['material']
+#             validated_kafkan = Kafkan.objects.get_or_create(kafkan=kafkan)[0]
+#             Kafkan = kafkan.objects.create(kafkan=validated_kafkan)
+#             Kafkan.save()
+#             return redirect('_list', pk=kafkan.pk)
 
  

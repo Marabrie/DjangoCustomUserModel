@@ -10,7 +10,7 @@ class KafkanForm(forms.ModelForm):
         fields = ('size', 'price', 'color', 'material',)
 
 
-KafkanFormSet = forms.inlineformset_factory(Kafkan, form = KafkanForm, extra=1)
+# KafkanFormSet = forms.inlineformset_factory(Kafkan, form = KafkanForm, extra=1)
         
         
 class KafkanForm(forms.Form):
