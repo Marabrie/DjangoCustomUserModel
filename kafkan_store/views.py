@@ -8,11 +8,14 @@ from django.shortcuts import redirect
 
 def kafkan_list(request):
     kafkan = Kafkan.objects.order_by('size', 'price', 'color', 'material')
-    return render(request, 'kafkan/kafkan_list.html', {'kafkan': kafkan})
+    return render(request, 'kafkan_detail.html')
+
+def home(request):
+    return render(request, 'home.html',)
 
 def kafkan_detail(request, pk):
     kafkan = get_object_or_404(Kafkan, pk=pk)
-    return render(request, 'kafkan/kafkan_detail.html', {'kafkan': kafkan})
+    return render(request, 'kafkan_detail.html', {'kafkan': kafkan})
 
 def kafkan_new(request):
     if request.method == 'POST':

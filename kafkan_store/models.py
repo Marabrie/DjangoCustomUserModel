@@ -5,9 +5,10 @@ from django.conf import settings
 class Kafkan(models.Model):
     size = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    color = models.CharField(max_length=15)
+    color = models.CharField(max_length=100)
     material = models.CharField(max_length=100)
-    # name = models.CharField(max_length=250)
+    name = models.CharField(max_length=250, primary_key=True, default="Kafkan")
+    # name each thing diffeently to distinguish 
     image = models.ImageField()
     # description = models.TextField()
     

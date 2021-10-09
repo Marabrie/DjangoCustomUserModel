@@ -3,7 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.kafkan_list, name='kafkan_list'),
+    path('kafkan_list/', views.kafkan_list, name='kafkan_list'),
+    path('',views.home, name="home"),
     path('kafkan/<int:pk>/', views.kafkan_detail, name='kafkan_detail'),
     # path('kafkan/new/', views.create_kafkan, name='kafkan_new'),
     path('kafkan/new/', views.kafkan_new, name='kafkan_new'),
