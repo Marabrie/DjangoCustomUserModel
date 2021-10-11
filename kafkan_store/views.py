@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.db.models.query import prefetch_related_objects
 from django.shortcuts import render, get_object_or_404
 from .models import Kafkan
 from .forms import KafkanForm
@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 
 
 def kafkan_list(request):
-    kafkan = Kafkan.objects.order_by('size', 'price', 'color', 'material')
+    kafkan = Kafkan.objects.all()
     return render(request, 'kafkan_list.html')
 
 def home(request):
@@ -35,7 +35,6 @@ def kafkan_edit(request, pk):
         form = KafkanForm(request.POST, instance=kafkan)
         if form.is_valid():
             kafkan = form.save(commit=False)
-            kafkan.author = request.user
             kafkan.save()
             return redirect('kafkan_edit', pk=kafkan.pk)
     else:
