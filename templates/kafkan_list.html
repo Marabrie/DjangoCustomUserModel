@@ -17,10 +17,8 @@
        
             <h2><a href="{% url 'kafkan_detail' pk=kafkan.name %}">{{ kafkan }}</a></h2>
                      
-               
                 {% endfor %}
-               
-            
+                           
                 <a class="btn btn-kafkan" href="{% url 'kafkan_edit' pk=kafkan.name %}">
                     {% include './icons/pencil-fill.svg' %}
                 </a><br>

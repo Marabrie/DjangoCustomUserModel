@@ -20,4 +20,4 @@ class KafkanForm(forms.Form):
     material = forms.TextInput()
     
 class OrderByForm(forms.Form):
-    order = CharField(max_length=20)
+    order = CharField(max_length=120)

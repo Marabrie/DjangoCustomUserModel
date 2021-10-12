@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+
+from kafkan_store.views import kafkan_delete
 # from django.db.models.fields.related import ForeignKey
 
 class Kafkan(models.Model):
@@ -14,10 +16,11 @@ class Kafkan(models.Model):
     
     
     def __str__(self):
-        return str(self.image)
+        return str(self.name)
     
     class Meta:
         ordering = ['image']
     
+
     
     
