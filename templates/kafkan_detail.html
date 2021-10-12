@@ -5,8 +5,8 @@
 <article class="kafkan">
     <aside class="actions">
     {% if user.is_authenticated %}
-        <a class="btn btn-default" href="{% url 'kafkan_edit' pk=kafkan_name %}">
-          {% include './icons/pencil-fill.svg' %}
+        <a class="btn btn-default" href="{% url 'kafkan_edit' pk=kafkan.pk %}">
+         {{ kafkan.name }} 
         </a>
     <h1>kafkan</h1> 
     {% endif %}

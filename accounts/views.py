@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic.detail import T
+# from django.views.generic.detail import T
 
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView

@@ -7,8 +7,8 @@ from django.shortcuts import redirect
 
 
 def kafkan_list(request):
-    kafkan = Kafkan.objects.all()
-    return render(request, 'kafkan_list.html')
+    kafkans = Kafkan.objects.all()
+    return render(request, 'kafkan_list.html', {'kafkans': kafkans})
 
 def home(request):
     return render(request, 'home.html',)
@@ -36,7 +36,7 @@ def kafkan_edit(request, pk):
         if form.is_valid():
             kafkan = form.save(commit=False)
             kafkan.save()
-            return redirect('kafkan_edit', pk=kafkan.pk)
+            return redirect('kafkan_detail', pk=kafkan.pk)
     else:
         form = KafkanForm(instance=kafkan)
     return render(request, 'kafkan_edit.html', {'form': form})

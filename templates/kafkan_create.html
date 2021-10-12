@@ -2,7 +2,7 @@
 {% block content %}
 
 <article class="kafkan">
-<form action="." method='post' class='post-form'>
+<form action="{% url 'kafkan_new' %}" method="POST" enctype="multipart/form-data" class='post-form'>
     {% csrf_token %}
     <h3>add kafkan</h3>
     <h6>{{ form.as_p }}</h6>
