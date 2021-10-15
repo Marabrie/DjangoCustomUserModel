@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <div class="kafkan-list">
     {% for kafkan in kafkans %}
         <article class="kafkan">
@@ -15,7 +16,7 @@
               <p>{{ kafkan.material }}</p> 
               <p>{{ kafkan.name }}</p> 
 
-              <img src="{{ kafkan.image.url }}"></img>
+              <img src={% static kafkan.image.url %}></img>
             
             <a class="btn btn-kafkan" href="{% url 'kafkan_edit' pk=kafkan.pk %}">
             </a><br>

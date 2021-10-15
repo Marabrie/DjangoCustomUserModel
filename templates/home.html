@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
@@ -11,4 +13,28 @@
   <a href="{% url 'login' %}">Log In</a> |
   <a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
+
+<div class="kafkan-list">
+  {% for kafkan in kafkans %}
+      <article class="kafkan">
+          <h2><a href="{% url 'kafkan_detail' pk=kafkan.pk %}">{{ kafkan.name }}</a></h2>
+            
+            <p>{{ kafkan.size }}</p> 
+            <p>{{ kafkan.price }}</p>  
+            <p>{{ kafkan.color }}</p>      
+            <p>{{ kafkan.material }}</p> 
+            <p>{{ kafkan.name }}</p> 
+           
+            <img src="{% static 'static/assets/' %}"></img>
+          
+          <a class="btn btn-kafkan" href="{% url 'kafkan_edit' pk=kafkan.pk %}">
+          </a>
+          <br>
+          
+      </article>
+  {% endfor %}
+  
+</div>
+
 {% endblock %}
+
