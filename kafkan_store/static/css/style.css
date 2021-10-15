@@ -41,7 +41,7 @@ h4 {
 
 .post-form textarea,
 .post-form input {
-    width: 100%;
+    width: 35%;
 }
 
 .top-menu,
@@ -69,9 +69,9 @@ h4 {
 
 .btn-default,
 .btn-default:visited {
-    color: #C25100;
+    color: #e00cb2;
     background: none;
-    border-color: #C25100;
+    border-color: #910bdf;
 }
 
 .btn-default:hover {
@@ -81,5 +81,5 @@ h4 {
 
 label {
     color:#AADE1F;
-    font-size: 100pt;
+    font-size: 55pt;
 }
