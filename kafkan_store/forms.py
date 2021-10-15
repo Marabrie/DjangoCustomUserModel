@@ -7,17 +7,14 @@ from .models import Kafkan
 class KafkanForm(forms.ModelForm):
     class Meta:
         model = Kafkan
-        fields = ('size', 'price', 'color', 'material',)
+        fields = ('size', 'price', 'color', 'material','name', 'image')
+        
 
 
 # KafkanFormSet = forms.inlineformset_factory(Kafkan, form = KafkanForm, extra=1)
         
         
-class KafkanForm(forms.Form):
-    size = forms.CharField(max_length=40)
-    price = forms.DecimalField()
-    color= forms.TextInput()
-    material = forms.TextInput()
+
     
-class OrderByForm(forms.Form):
-    order = CharField(max_length=20)
+# class OrderByForm(forms.Form):
+#     order = CharField(max_length=120)

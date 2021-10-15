@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>New kafkan</h2>
-    <form method="POST" class="kafkan-form">{% csrf_token %}
+<article class="kafkan">
+    <form method='POST' class='post-form'>{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
     </form>
+    <button type='submit' class='save btn btn-save'>Save</button>
+</article>
+
 {% endblock %}

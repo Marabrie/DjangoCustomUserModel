@@ -1,9 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
-{% block content %}
-    <h2>Delete kafkan</h2>
-    <form method="POST" class="kafkan-form">{% csrf_token %}
+{% block content %} 
+    <h2>Kafkan Deleted</h2>
+    <form method='POST' class='post-form'>{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type='submit' class='trash btn btn-default'>Delete</button>
     </form>
+    
 {% endblock %}
