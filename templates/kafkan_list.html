@@ -5,7 +5,7 @@
 {% block content %}
 
 
-<div class="kafkan-list">
+<!-- <div class="kafkan-list">
     {% for kafkan in kafkans %}
         <article class="kafkan">
             <h2><a href="{% url 'kafkan_detail' pk=kafkan.pk %}">{{ kafkan.name }}</a></h2>
@@ -16,7 +16,9 @@
               <p>{{ kafkan.material }}</p> 
               <p>{{ kafkan.name }}</p> 
 
-              <img src={% static kafkan.image.url %}></img>
+              {% if kafkan.image %}
+              <img src="{% static kafkan.image.url %}"></img>
+              {% endif %}
             
             <a class="btn btn-kafkan" href="{% url 'kafkan_edit' pk=kafkan.pk %}">
             </a><br>
@@ -24,6 +26,40 @@
         </article>
     {% endfor %}
     
-</div>
-
+</div> -->
+<!-- product information -->
+{% for kafkan in kafkans %}
+<section class="section"> 
+    <div class="container">
+      <div class="columns is-vcentered is-multiline">
+        <!-- column is a Bulma 12 column grid system-->
+        <div class="column is-6-tablet is-3-desktop">
+            <h1 class= "is-size-3-mobile is-size-1-desktop title">Kafkan</h1>
+            <h2 class= "is-size-3-mobile is-size-2-desktop subtitle">{{ kafkan.name }}</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus nisi illum, eum quisquam ut, delectus aliquid, doloremque dolore soluta quia harum. Blanditiis vero quod amet, nam totam cum quas nostrum?</p>
+        </div>
+        <div class="column is-6-tablet is-5-desktop has-text-centered">
+          <img src="{% static kafkan.image.url %}" alt="cream kafkan image" class="px-6"
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus nisi illum, eum quisquam ut, delectus aliquid, doloremque dolore soluta quia harum. Blanditiis vero quod amet, nam totam cum quas nostrum?</p>
+        </div>
+        <div class="column is-12-tablet is-4-desktop">
+          <div class="is-size-4 mb-4">{{ kafkan.price }}</div>
+          <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus nisi illum, eum quisquam ut, delectus aliquid, doloremque dolore soluta quia harum. Blanditiis vero quod amet, nam totam cum quas nostrum?</p>
+          <form>
+            <div class="class field">
+              <div class="control mb-6">
+                <div class="select is-dark">
+                  <select>
+                    <option>One Size Fits All</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          <button class="button is-primary is-medium">Add to Cart</button>
+        </form>
+        </div>
+      </div>
+    </div>
+</section>
+{% endfor %}
 {% endblock %}

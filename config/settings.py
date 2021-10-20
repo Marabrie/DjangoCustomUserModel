@@ -131,8 +131,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-MEDIA_ROOT = BASE_DIR / "media"
-MEDIA_URL = "/media/"
+
+MEDIA_ROOT = BASE_DIR / "assets"
+MEDIA_URL = "/assets/"
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
