@@ -12,13 +12,17 @@
     <body>
          <!-- navbar -->
     <nav class="navbar has-shadow is-white">
-
+        {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+      {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a> |
+        <a href="{% url 'signup' %}">Sign Up</a>
+      {% endif %}
+      
         
-
-
-
-
-         <!--logo / brand  -->
+        <!--logo / brand  -->
          <div class="navbar-brand">
             <a class="navbar-item">
                 <img src="/static/assets/MrsRopersKafkanslogo.png" alt="site logo"  style="max-height: 300px"  class="py-3 px-3">
