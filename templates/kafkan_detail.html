@@ -1,13 +1,31 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% load static %}
 
-<article class="kafkan">
-    <aside class="actions">
-    {% if user.is_authenticated %}
-        <a class="btn btn-default" href="{% url 'kafkan_edit' pk=kafkan.pk %}">
-         {{ kafkan.name }} 
-        </a>
-    <h1>kafkan</h1> 
-    {% endif %}
-    {% endblock %}
+{% block content %}
+<p>Hello World</p>
+    <div class="kafkan-detail">
+    
+   
+        <article class="kafkan">
+            <h2>{{ kafkan.name }}</h2>
+              
+              <p>{{ kafkan.size }}</p> 
+              <p>{{ kafkan.price }}</p>  
+              <p>{{ kafkan.color }}</p>      
+              <p>{{ kafkan.material }}</p> 
+              <p>{{ kafkan.name }}</p> 
+
+              {% if kafkan.image %}
+              <img src="{% static kafkan.image.url %}"></img>
+              {% endif %}
+            
+            <a class="btn btn-kafkan" >
+            </a><br>
+            
+        </article>
+    
+    
+</div>
+
+{% endblock %}
