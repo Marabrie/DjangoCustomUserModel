@@ -4,29 +4,6 @@
 
 {% block content %}
 
-
-<!-- <div class="kafkan-list">
-    {% for kafkan in kafkans %}
-        <article class="kafkan">
-            <h2><a href="{% url 'kafkan_detail' pk=kafkan.pk %}">{{ kafkan.name }}</a></h2>
-              
-              <p>{{ kafkan.size }}</p> 
-              <p>{{ kafkan.price }}</p>  
-              <p>{{ kafkan.color }}</p>      
-              <p>{{ kafkan.material }}</p> 
-              <p>{{ kafkan.name }}</p> 
-
-              {% if kafkan.image %}
-              <img src="{% static kafkan.image.url %}"></img>
-              {% endif %}
-            
-            <a class="btn btn-kafkan" href="{% url 'kafkan_edit' pk=kafkan.pk %}">
-            </a><br>
-            
-        </article>
-    {% endfor %}
-    
-</div> -->
 <!-- product information -->
 {% for kafkan in kafkans %}
 <section class="section"> 

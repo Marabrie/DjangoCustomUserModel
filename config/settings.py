@@ -129,10 +129,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'kafkan_store/static',
+    BASE_DIR / 'static',
 ]
 
-MEDIA_ROOT = BASE_DIR / "assets"
+MEDIA_ROOT = STATICFILES_DIRS[0] / "assets"
 MEDIA_URL = "/assets/"
 
 LOGIN_REDIRECT_URL = 'kafkan_list'
