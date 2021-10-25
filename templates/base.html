@@ -14,7 +14,7 @@
          <!-- navbar -->
     <nav class="navbar has-shadow ">
          {% if user.is_authenticated %}
-        Hi {{ user.username }}!
+         Hi {{ user.username }}!
         <p><a href="{% url 'logout' %}">Log Out</a></p>
       {% else %}
         <p>You are not logged in</p>

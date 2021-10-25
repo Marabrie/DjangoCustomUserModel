@@ -1,50 +1,49 @@
-from django.db.models.query import prefetch_related_objects
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Kafkan
 from .forms import KafkanForm
-from django.shortcuts import redirect
-#from django.http import HttpResponse
+
 
 
 def kafkan_list(request):
     kafkans = Kafkan.objects.all()
-    return render(request, 'kafkan_list.html', {'kafkan': kafkans})
+    return render(request, "kafkan_list.html", {'kafkans': kafkans})
 
 def home(request):
-    return render(request, 'home.html',)
+    return render(request, "home.html",)
 
 def kafkan_detail(request, pk):
     kafkan = get_object_or_404(Kafkan, pk=pk)
-    return render(request, 'kafkan_detail.html', {'kafkan': kafkan})
+    return render(request, "kafkan_detail.html", {'kafkan': kafkan})
 
 def kafkan_new(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = KafkanForm(request.POST)
         if form.is_valid():
-            kafkan = form.save(commit=False)
-            kafkan.author = request.user
-            kafkan.save()
-            return redirect('kafkan_detail', pk=kafkan.pk)
+            kafkan = form.save()
+            return redirect("kafkan_detail", pk=kafkan.pk)
     else:
         form = KafkanForm
-    return render(request, 'kafkan_edit.html', {'form': form})
+    return render(request, "kafkan_create.html", {'form': form})
 
 def kafkan_edit(request, pk):
     kafkan = get_object_or_404(Kafkan, pk=pk)
-    if request.method == 'POST':
+    if request.method == "GET":
+        form = KafkanForm( instance=kafkan)
+    else:
         form = KafkanForm(request.POST, instance=kafkan)
         if form.is_valid():
-            kafkan = form.save(commit=False)
-            kafkan.save()
-            return redirect('kafkan_detail', pk=kafkan.pk)
-    else:
-        form = KafkanForm(instance=kafkan)
-    return render(request, 'kafkan_edit.html', {'form': form})
+            form.save()
+            return redirect("kafkan_list")
+
+    return render(request, "kafkan_edit.html", {"form": form, "kafkan": kafkan})
+   
 
 def kafkan_delete(request, pk):
-    kafkan_to_delete = get_object_or_404(Kafkan, pk=pk)
-    kafkan_to_delete.delete()
-    return redirect('kafkan_list')
+    kafkan = get_object_or_404(Kafkan, pk=pk)
+    if request.method == "POST":
+        kafkan.delete()
+        return redirect("kafkan_list")
+    return render(request, "kafkan_delete.html", {"kafkan": kafkan})
 
 
 # def create_kafkan(request):
