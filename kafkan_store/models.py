@@ -1,8 +1,9 @@
 from django.db import models
 from django.conf import settings
+from django.forms import ModelForm
 
 
-# from django.db.models.fields.related import ForeignKey
+
 
 class Kafkan(models.Model):
     size = models.CharField(max_length=200)

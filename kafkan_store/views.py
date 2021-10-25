@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 
 def kafkan_list(request):
     kafkans = Kafkan.objects.all()
-    return render(request, 'kafkan_list.html', {'kafkans': kafkans})
+    return render(request, 'kafkan_list.html', {'kafkan': kafkans})
 
 def home(request):
     return render(request, 'home.html',)
