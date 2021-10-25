@@ -28,15 +28,19 @@ tabs.forEach(tab => {
 })
 
 //modal
-const signUpButtton = document.querySelector('#signup');
+const signUpButtton = document.getElementById('signup');
 const modalBg = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
+if (signUpButtton != null) {
+  signUpButtton.addEventListener('click', () => {
+    modal.classList.add('is-active');
+  })
+}
 
-signUpButtton.addEventListener('click', () => {
-  modal.classList.add('is-active');
-})
+if (modalBg != null) {
+  modalBg.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+  })
+}
 
-modalBg.addEventListener('click', () => {
-  modal.classList.remove('is-active');
-})
 

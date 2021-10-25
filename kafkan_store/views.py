@@ -8,10 +8,7 @@ from django.shortcuts import redirect
 
 def kafkan_list(request):
     kafkans = Kafkan.objects.all()
-    return render(request, 'kafkan_list.html', {'kafkan': kafkans})
-
-def home(request):
-    return render(request, 'home.html',)
+    return render(request, 'kafkan_list.html', {'kafkans': kafkans})
 
 def kafkan_detail(request, pk):
     kafkan = get_object_or_404(Kafkan, pk=pk)
@@ -19,15 +16,15 @@ def kafkan_detail(request, pk):
 
 def kafkan_new(request):
     if request.method == 'POST':
-        form = KafkanForm(request.POST)
+        form = KafkanForm(request.POST, request.FILES)
         if form.is_valid():
-            kafkan = form.save(commit=False)
+            kafkan = form.save()
             kafkan.author = request.user
             kafkan.save()
             return redirect('kafkan_detail', pk=kafkan.pk)
     else:
-        form = KafkanForm
-    return render(request, 'kafkan_edit.html', {'form': form})
+        form = KafkanForm()
+    return render(request, 'kafkan_add.html', {'form': form})
 
 def kafkan_edit(request, pk):
     kafkan = get_object_or_404(Kafkan, pk=pk)
@@ -62,5 +59,3 @@ def kafkan_delete(request, pk):
 #             Kafkan = kafkan.objects.create(kafkan=validated_kafkan)
 #             Kafkan.save()
 #             return redirect('_list', pk=kafkan.pk)
-
- 
