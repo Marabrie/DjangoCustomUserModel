@@ -3,13 +3,9 @@ from .models import Kafkan
 from .forms import KafkanForm
 
 
-
 def kafkan_list(request):
     kafkans = Kafkan.objects.all()
     return render(request, "kafkan_list.html", {'kafkans': kafkans})
-
-def home(request):
-    return render(request, "home.html",)
 
 def kafkan_detail(request, pk):
     kafkan = get_object_or_404(Kafkan, pk=pk)
@@ -17,13 +13,15 @@ def kafkan_detail(request, pk):
 
 def kafkan_new(request):
     if request.method == "POST":
-        form = KafkanForm(request.POST)
+        form = KafkanForm(request.POST, request.FILES)
         if form.is_valid():
             kafkan = form.save()
+            kafkan.author = request.user
+            kafkan.save()
             return redirect("kafkan_detail", pk=kafkan.pk)
     else:
-        form = KafkanForm
-    return render(request, "kafkan_create.html", {'form': form})
+        form = KafkanForm()
+    return render(request, "kafkan_add.html", {'form': form})
 
 def kafkan_edit(request, pk):
     kafkan = get_object_or_404(Kafkan, pk=pk)

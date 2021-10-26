@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
+from django.db.models.deletion import CASCADE
 from django.forms import ModelForm
+
 
 
 
@@ -10,14 +12,14 @@ class Kafkan(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     color = models.CharField(max_length=100)
     material = models.CharField(max_length=100)
-    name = models.CharField(max_length=250, default="Kafkan")
+    name = models.CharField(max_length=250, blank=True)
     # name each thing differently to distinguish 
-    image = models.ImageField()
+    image = models.ImageField(upload_to="./media")
     # description = models.TextField()
-    
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
     
     def __str__(self):
-        return str(self.name)
+        return self.name
     
     class Meta:
         ordering = ['image']

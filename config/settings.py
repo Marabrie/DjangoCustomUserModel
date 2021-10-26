@@ -132,8 +132,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-MEDIA_ROOT = STATICFILES_DIRS[0] / "assets"
-MEDIA_URL = "/assets/"
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 LOGIN_REDIRECT_URL = 'kafkan_list'
 LOGOUT_REDIRECT_URL = 'kafkan_list'
