@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'django_extensions',
-    # 'kafkan.apps.KafkanConfig',
-    'accounts', #new
     'kafkan_store',
     
 ]
