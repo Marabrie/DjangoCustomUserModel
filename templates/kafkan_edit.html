@@ -2,10 +2,12 @@
 
 {% block content %}
 <article class="kafkan">
-    <form method='POST' class='post-form'>{% csrf_token %}
+    <form method="POST" class=post_form>{% csrf_token %}
         {{ form.as_p }}
-    </form>
+    
     <button type='submit' class='save btn btn-save'>Save</button>
+
+    </form>
 </article>
 
 {% endblock %}

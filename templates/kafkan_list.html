@@ -1,29 +1,33 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} 
 
-{% load static %}
+{% block content %} 
 
-{% block content %}
+        <!-- card building info--> 
 
 
-<div class="kafkan-list">
-    {% for kafkan in kafkans %}
-        <article class="kafkan">
-            <h2><a href="{% url 'kafkan_detail' pk=kafkan.pk %}">{{ kafkan.name }}</a></h2>
-              
-              <p>{{ kafkan.size }}</p> 
-              <p>{{ kafkan.price }}</p>  
-              <p>{{ kafkan.color }}</p>      
-              <p>{{ kafkan.material }}</p> 
-              <p>{{ kafkan.name }}</p> 
+<div class="columns is-multiline">
+  {% for kafkan in kafkans %}
+  <div class="column is-one-third">
+    <section class="is-flex">
+        <div class="container  m-5 pt-5">
+            <div class="card">
+                {% if kafkan.name %}
+                <h4 class="title is-4 has-text-primary card-header p-3">{{ kafkan.name }}</h4>
+                {% endif %}
 
-              <img src={% static kafkan.image.url %}></img>
-            
-            <a class="btn btn-kafkan" href="{% url 'kafkan_edit' pk=kafkan.pk %}">
-            </a><br>
-            
-        </article>
-    {% endfor %}
-    
-</div>
+                <div class="card-content">
+                    
+                <img class="content" src="{{ kafkan.image }}" alt="">
+                <p class="content">{{ kafkan.size }}</p>
+                <p class="content">${{ kafkan.price }}</p>
+                
+                </div>
+            </div> 
+        </div>   
+    </section>
+  </div> 
 
+
+{% endfor %}
+</div>  
 {% endblock %}

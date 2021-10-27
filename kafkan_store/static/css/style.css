@@ -19,7 +19,7 @@ body {
 .page-header h1 a,
 .page-header h1 a:visited,
 .page-header h1 a:active {
-    color: #ffffff;
+    color: #d0f726;
     font-size: 36pt;
     text-decoration: none;
 }
@@ -82,4 +82,17 @@ h4 {
 label {
     color:#AADE1F;
     font-size: 55pt;
+}
+.navbar is-white  {  
+    color: black;
+    background-color: rgb(240, 9, 144);
+    /* text-decoration: none; */
+    display:flex;
+    align-items: center;
+    justify-content: right;
+    text-align:right;
+    border-bottom: 20px solid #fff7ec;
+    padding: 10px 10px 10px 10px;
+    height: 65px;
+    align-content: center;
 }
