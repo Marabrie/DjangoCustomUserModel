@@ -1,14 +1,33 @@
 {% extends 'base.html' %} {% load static %} 
 
 {% block content %} 
-<section class="section">
-  
+
+        <!-- card building info--> 
+
+
+<div class="columns is-multiline">
   {% for kafkan in kafkans %}
-          <!-- card building info--> 
-          <div class="kafkan">
-            <h2>{{ kafkan.name }}</h2>
-             <p>{{ kafkan.size }}</p>
-        </div>
-    {% endfor %}
-</section>
- {% endblock %}
+  <div class="column is-one-third">
+    <section class="is-flex">
+        <div class="container  m-5 pt-5">
+            <div class="card">
+                {% if kafkan.name %}
+                <h4 class="title is-4 has-text-primary card-header p-3">{{ kafkan.name }}</h4>
+                {% endif %}
+
+                <div class="card-content">
+                    
+                <img class="content" src="{{ kafkan.image }}" alt="">
+                <p class="content">{{ kafkan.size }}</p>
+                <p class="content">${{ kafkan.price }}</p>
+                
+                </div>
+            </div> 
+        </div>   
+    </section>
+  </div> 
+
+
+{% endfor %}
+</div>  
+{% endblock %}
