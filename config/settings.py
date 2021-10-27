@@ -70,7 +70,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))], #new
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,13 +131,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_ROOT = BASE_DIR / "media/media"
+MEDIA_ROOT = [BASE_DIR / "media/media"]
 MEDIA_URL = "/media/"
 
 LOGIN_REDIRECT_URL = 'kafkan_list'
