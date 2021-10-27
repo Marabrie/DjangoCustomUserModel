@@ -137,7 +137,7 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_ROOT = [BASE_DIR / "media/media"]
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/media")
 MEDIA_URL = "/media/"
 
 LOGIN_REDIRECT_URL = 'kafkan_list'
