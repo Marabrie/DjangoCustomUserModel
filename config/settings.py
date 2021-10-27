@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     
 ]
 
-AUTH_USER_MODEL = 'accounts.CustomUser' #new
+AUTH_USER_MODEL = 'kafkan_store.User' 
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
