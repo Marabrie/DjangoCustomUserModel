@@ -116,7 +116,11 @@
                 "sha256:f8559617b1fcf59a9aedba2c9838b5b6aa211ffedecabca412b92a1ff75aac1a",
                 "sha256:fbb42a541b1093385a2d8c7eec94d26d30437d0e77c1d25dae1dcc46741a385e"
             ],
+<<<<<<< HEAD
             "index": "pypi",
+=======
+            "markers": "python_version >= '3.6'",
+>>>>>>> 1aeca3a113f0018af438289acc4df3025012c2b1
             "version": "==2.9.1"
         },
         "pytz": {

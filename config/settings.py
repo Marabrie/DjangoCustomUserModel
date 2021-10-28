@@ -133,10 +133,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = [BASE_DIR / "media/media"]
+
 MEDIA_URL = "/media/"
 
 LOGIN_REDIRECT_URL = 'kafkan_list'
@@ -144,6 +144,7 @@ LOGOUT_REDIRECT_URL = 'kafkan_list'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # Configure Django App for Heroku
 import django_on_heroku
