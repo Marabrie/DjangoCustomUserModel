@@ -17,7 +17,8 @@ class Kafkan(models.Model):
     # name each thing differently to distinguish 
     image = models.ImageField(upload_to="./media")
     # description = models.TextField()
-    author = models.ForeignKey(CustomUser, on_delete=CASCADE)
+    author = models.ForeignKey(CustomUser, on_delete=CASCADE, related_name='kafkan')
+   
     
     def __str__(self):
         return self.name
