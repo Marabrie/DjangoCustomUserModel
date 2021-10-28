@@ -46,10 +46,11 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'kafkan_store',
+    'accounts',
     
 ]
 
-AUTH_USER_MODEL = 'kafkan_store.User' 
+AUTH_USER_MODEL = 'accounts.CustomUser' 
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',

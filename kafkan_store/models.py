@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from accounts.models import CustomUser
 from django.db.models.deletion import CASCADE
 from django.forms import ModelForm
 
@@ -16,7 +17,7 @@ class Kafkan(models.Model):
     # name each thing differently to distinguish 
     image = models.ImageField(upload_to="./media")
     # description = models.TextField()
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
+    author = models.ForeignKey(CustomUser, on_delete=CASCADE)
     
     def __str__(self):
         return self.name
