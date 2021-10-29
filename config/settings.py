@@ -166,11 +166,13 @@ AWS_DEFAULT_ACL = 'public-read'
 AWS_PRELOAD_METADATA = True
 AWS_QUERYSTRING_AUTH = True
 
-AWS_LOCATION = 'static'
+AWS_STATIC_LOCATION = 'static'
+AWS_MEDIA_LOCATION = 'media'
 
-
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
+MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_MEDIA_LOCATION)
 DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
+
