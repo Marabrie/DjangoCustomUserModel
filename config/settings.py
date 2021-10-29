@@ -130,11 +130,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-# MEDIA_URL = "/media/"
+MEDIA_URL = "/media/"
 
 LOGIN_REDIRECT_URL = 'kafkan_list'
 LOGOUT_REDIRECT_URL = 'kafkan_list'
@@ -169,10 +169,10 @@ AWS_QUERYSTRING_AUTH = True
 AWS_STATIC_LOCATION = 'static'
 AWS_MEDIA_LOCATION = 'media'
 
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_MEDIA_LOCATION)
-DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
+# MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_MEDIA_LOCATION)
+# DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
 

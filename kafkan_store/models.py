@@ -15,7 +15,7 @@ class Kafkan(models.Model):
     material = models.CharField(max_length=100)
     name = models.CharField(max_length=250, blank=True)
     # name each thing differently to distinguish 
-    image = models.ImageField(upload_to="./media")
+    image = models.ImageField(upload_to="media")
     # description = models.TextField()
     author = models.ForeignKey(CustomUser, on_delete=CASCADE, related_name='kafkan')
    
