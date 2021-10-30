@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'kafkan_store',
     'accounts',
     'storages',
+
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser' 
@@ -145,34 +146,29 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure Django App for Heroku
 import django_on_heroku
-django_on_heroku.settings(locals())
+django_on_heroku.settings(locals(), staticfiles=False)
 del DATABASES['default']['OPTIONS']['sslmode']
 
 
-# AWS setup
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
+# AWS Setup
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'kafkan-static'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+S3_BUCKET_NAME = 'kafkan-static'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % S3_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
+AWS_LOCATION = 'static'
+AWS_S3_REGION_NAME = 'us-east-1'
 
-AWS_DEFAULT_ACL = 'public-read'
-AWS_PRELOAD_METADATA = True
-AWS_QUERYSTRING_AUTH = True
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
-AWS_STATIC_LOCATION = 'static'
-AWS_MEDIA_LOCATION = 'media'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
 
-
-# MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_MEDIA_LOCATION)
-# DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
 
