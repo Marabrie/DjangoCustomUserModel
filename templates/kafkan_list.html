@@ -18,7 +18,7 @@
 
                 <div class="card-content">
                     
-                <img class="content" src="{{ kafkan.image }}" alt="">
+                <img class="content" src="{{ kafkan.image.url }}" alt="">
                 <p class="content">{{ kafkan.size }}</p>
                 <p class="content">${{ kafkan.price }}</p>
                 <a href="{% url 'kafkan_detail' pk=kafkan.pk %}"> Details </a>
