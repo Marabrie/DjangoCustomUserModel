@@ -18,7 +18,7 @@
               <p>{{ kafkan.name }}</p> 
 
               {% if kafkan.image %}
-              <img src="{% static kafkan.image.url %}"></img>
+              <img src="{{ kafkan.image.url }}" alt="">
               {% endif %}
             
             <a class="btn btn-kafkan" >
