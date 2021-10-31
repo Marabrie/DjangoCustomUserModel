@@ -83,7 +83,7 @@ label {
     color:#AADE1F;
     font-size: 55pt;
 }
-.navbar is-white  {  
+.navbar {  
     color: black;
     background-color: rgb(240, 9, 144);
     /* text-decoration: none; */
