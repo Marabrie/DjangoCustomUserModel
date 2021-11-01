@@ -71,6 +71,7 @@ function(name) {
 
     //Remove all items from cart
     obj.removeItemFromCartAll = function(name) {
+      console.log('remove all')
         for(let item in cart) {
             if(cart[item].name === name) {
                 cart.splice(item, 1);
@@ -86,16 +87,16 @@ function(name) {
               saveCart();
           }
 
-          //Count cart
-          obj.totalCount = function()
-          {
-            let totalCount = 0;
-            for(let item in cart) {
-                totalCount +=
-          cart[item].count;
-            } 
-            return totalCount; 
-          } 
+          // //Count cart
+          // obj.totalCount = function()
+          // {
+          //   let totalCount = 0;
+          //   for(let item in cart) {
+          //       totalCount +=
+          // cart[item].count;
+          //   } 
+          //   return totalCount; 
+          // } 
 
  //Total cart
  obj.totalCart = function() {
@@ -105,8 +106,8 @@ function(name) {
     cart[item].price *
     cart[item].count;
         }
-        return
-    Number(totalCart.toFixed(2));
+        console.log(totalCart)
+        return Number(totalCart.toFixed(2));
       } 
 //List cart
 obj.listCart = function() {
@@ -155,11 +156,7 @@ shoppingCart.addItemToCart(name, price, 1);
     displayCart();
 });
 
-// Clear items
-$('.clear-cart').click(function() {
-    shoppingCart.clearCart();
-    displayCart();
-});
+
 
 
 function displayCart() {
@@ -172,22 +169,30 @@ function displayCart() {
       output += "<tr>"
         + "<td>" + cartArray[i].name + "</td>" 
         + "<td>(" + cartArray[i].price + ")</td>"
-        + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
-        + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-        + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
-        + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+        
         + " = " 
         + "<td>" + cartArray[i].total + "</td>" 
-        +  "</tr>";
+        +  "</tr>"
+        
     }
+    output += "<tr><th>total</th><td class='total-cart'></td></tr>"
+    console.log(output)
     $('.show-cart').html(output);
+    console.log(shoppingCart.totalCart())
     $('.total-cart').html(shoppingCart.totalCart());
-    $('.total-count').html(shoppingCart.totalCount());
+   
+ 
   }
+   // Clear items
+  $('.clear-cart').click(function () {
+    shoppingCart.clearCart();
+    displayCart();
+  });
   
   // Delete item button
   
   $('.show-cart').on("click", ".delete-item", function(event) {
+    console.log('delete')
     var name = $(this).data('name')
     shoppingCart.removeItemFromCartAll(name);
     displayCart();
