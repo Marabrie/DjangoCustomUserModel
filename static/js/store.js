@@ -164,8 +164,8 @@ function displayCart() {
     let cartArray =
     shoppingCart.listCart();
     console.log(cartArray)
-    var output = "";
-    for(var i in cartArray) {
+    let output = "";
+    for(let i in cartArray) {
       output += "<tr>"
         + "<td>" + cartArray[i].name + "</td>" 
         + "<td>(" + cartArray[i].price + ")</td>"
@@ -193,7 +193,7 @@ function displayCart() {
   
   $('.show-cart').on("click", ".delete-item", function(event) {
     console.log('delete')
-    var name = $(this).data('name')
+    let name = $(this).data('name')
     shoppingCart.removeItemFromCartAll(name);
     displayCart();
   })
@@ -201,21 +201,21 @@ function displayCart() {
   
   // -1
   $('.show-cart').on("click", ".minus-item", function(event) {
-    var name = $(this).data('name')
+    let name = $(this).data('name')
     shoppingCart.removeItemFromCart(name);
     displayCart();
   })
   // +1
   $('.show-cart').on("click", ".plus-item", function(event) {
-    var name = $(this).data('name')
+    let name = $(this).data('name')
     shoppingCart.addItemToCart(name);
     displayCart();
   })
   
   // Item count input
   $('.show-cart').on("change", ".item-count", function(event) {
-     var name = $(this).data('name');
-     var count = Number($(this).val());
+     let name = $(this).data('name');
+     let count = Number($(this).val());
     shoppingCart.setCountForItem(name, count);
     displayCart();
   });

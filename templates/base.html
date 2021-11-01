@@ -20,7 +20,7 @@
     <nav class="navbar has-shadow ">
         {% if user.is_authenticated %} 
         Hi {{ user.username }}!
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <!-- <p><a href="{% url 'logout' %}">Log Out</a></p> -->
       {% else %}
         <p>You are not logged in</p>
         <a href="{% url 'login' %}">Log In</a> |
@@ -29,37 +29,16 @@
       
         <!--logo / brand  -->
          <!-- <div class="navbar-brand"> -->
-           <div class= "nav-center">
+          <div class= "nav-center">
               <nav class="level has-text-centered">
                 <!-- <p class="level-item has-text-centered"> -->
                 <a class="navbar-brand"></a>
                 <a href="{% url 'kafkan_list' %}"><img src="https://kafkan-static.s3.amazonaws.com/static/assets/MrsRopersKafkanslogo.png" alt="site logo"  style="max-height: 200px"  class="py-4 px-4">
-               <ul>
-
-               </ul>
                 </a>
               </nav>
-            <a class="navbar-burger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </a>
           </div>      
-        </nav>
-  <!-- breadcrumbs
-  <div class="section pt-4 pb-10">
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-      <ul class="container is-size">
-        <li><a class="has-text-grey">Mrs.Ropers Kafkans</a></li>
-        <li><a class="has-text-grey">Shop</a></li>
-        <li class="is-active"><a href="#">Kafkans</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Kafkans</a></li>
-      </ul>
-    </nav> 
-  </div> -->
-
-
-
+    </nav>
+  
   {% block content %}
 
 
@@ -72,8 +51,8 @@
       </div>
   </footer>
 
-<!-- <script src="/static/assets/index.js"></script> -->
-</body>
+
+    </body>
 </html>
         
 
